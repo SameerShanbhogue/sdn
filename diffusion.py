@@ -97,7 +97,7 @@ class Upsample(nn.Module):
         self.conv = nn.Conv2d(channels,channels,kernel_size=3,padding=1)
 
     def forward(self,x):
-        x = F.interpolate(x,scale_factor=2,mode='nearset')
+        x = F.interpolate(x,scale_factor=2,mode='nearest')
         return self.conv(x)
     
 class SwitchSequential(nn.Sequential):
