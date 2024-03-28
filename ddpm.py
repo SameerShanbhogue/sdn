@@ -34,6 +34,7 @@ class DDPMSampler:
         current_beta_t = 1-alpha_prod_t/alpha_prod_t_prev
         variance = (1-alpha_prod_t_prev)/(1-alpha_prod_t)*current_beta_t
         variance=torch.clamp(variance,min=1e-20)
+        return variance
 
     def set_strength(self, strength=1):
         start_step = self.num_inference_steps - int(self.num_inference_steps*strength)
