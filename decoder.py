@@ -6,13 +6,13 @@ from attention import SelfAttention
 class VAE_AttentionBlock(nn.Module):
     def __init__(self, channels):
         super().__init__()
-        self.groupnorn = nn.GroupNorm(32,channels)
+        self.groupnorm = nn.GroupNorm(32,channels)
         self.attention = SelfAttention(1,channels)
 
 
     def forward(self,x):
         residue = x
-        x= self.groupnorn(x)
+        x= self.groupnorm(x)
         n,c,h,w = x.shape
         x = x.view((n,c,h*w))
         x = x.transpose(-1,-2)
