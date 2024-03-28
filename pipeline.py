@@ -13,7 +13,7 @@ def generate(
         uncond_prompt=None,
         input_image=None,
         strength=0.8,
-        d0_cfg=True,
+        do_cfg=True,
         cfg_scale=7.5,
         sampler_name='ddpm',
         n_inference_steps=50,
