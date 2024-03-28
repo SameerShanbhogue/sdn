@@ -23,8 +23,8 @@ class VAE_Encoder(nn.Sequential):
             VAE_ResidualBlock(512,512),
             nn.GroupNorm(32,512),
             nn.SiLU(),
-            nn.Conv2d(512,8,kernel_size=1,padding=1),
-            nn.Conv2d(8,8,kernel_size=3,padding=1),
+            nn.Conv2d(512,8,kernel_size=3,padding=1),
+            nn.Conv2d(8,8,kernel_size=1,padding=0),
         )
 
     def forward(self,x,noise):
