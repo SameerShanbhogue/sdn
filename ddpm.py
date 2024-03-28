@@ -62,7 +62,7 @@ class DDPMSampler:
 
             device = model_output.device
             noise = torch.randn(model_output.shape, generator=self.generator,device=device,dtype=model_output.dtype)
-            variance = (self._get_variance(t)**5)*noise
+            variance = (self._get_variance(t)**0.5)*noise
 
         pred_prev_sample = pred_prev_sample + variance
 
