@@ -69,7 +69,7 @@ class CrossAttention(nn.Module):
 
         output = weight @ v
 
-        output = output.transpose(1,2).contigous()
+        output = output.transpose(1,2).contiguous()
         output = output.view(input_shape)
         output = self.out_proj(output)
 
