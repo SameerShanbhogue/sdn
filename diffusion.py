@@ -10,7 +10,7 @@ class TimeEmbedding(nn.Module):
         self.linear_1 = nn.Linear(n_embd, 4 * n_embd)
         self.linear_2 = nn.Linear(4*n_embd, 4*n_embd)
 
-    def forwars(self,x):
+    def forward(self,x):
         x = self.linear_1(x)
         x = F.silu(x)
         x = self.linear_2(x)
