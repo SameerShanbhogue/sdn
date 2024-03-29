@@ -56,7 +56,7 @@ class DDPMSampler:
         pred_original_sample_coeff = (alpha_prod_t_prev**(0.5)*current_beta_t)/beta_prod_t
         current_sample_coeff = current_alpha_t**(0.5)*beta_prod_t_prev/beta_prod_t
 
-        pred_prev_sample = pred_original_sample_coeff*pred_original_sample+current_sample_coeff
+        pred_prev_sample = pred_original_sample_coeff * pred_original_sample + current_sample_coeff * latents
 
         variance = 0
         if t>0:
