@@ -46,7 +46,7 @@ class DDPMSampler:
         prev_t = self._get_previous_timestep(t)
 
         alpha_prod_t = self.alphas_cumprod[t]
-        alpha_prod_t_prev = self.alphas_cumprod[prev_t]
+        alpha_prod_t_prev = self.alphas_cumprod[prev_t] if prev_t >= 0 else self.one
         beta_prod_t = 1 - alpha_prod_t
         beta_prod_t_prev = 1- alpha_prod_t_prev
         current_alpha_t = alpha_prod_t/alpha_prod_t_prev
